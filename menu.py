@@ -39,9 +39,11 @@ def menu():
 
         if op in opciones:
             resultado = opciones[op]()          #Ejecuto las opciones y guardo el booleano
-            if resultado is not True:           #Pregunto al usuario si quiere continuar en el programa luego de que se terminen de ejecutar las  
+            if resultado is False:
+                menu = False
+            elif resultado is not True:           #Pregunto al usuario si quiere continuar en el programa luego de que se terminen de ejecutar las  
                 funciones.tiempo_fuera()        #funciones. En el caso de que el return sea False esto no se pregunta (lo utilizo para el minimenu)
         elif op == 0:
-            menu = False                        #Salgo del programa
+            menu = False                    #Salgo del programa
             
 menu()                                          #Ejecuto el programa

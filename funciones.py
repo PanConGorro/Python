@@ -44,9 +44,9 @@ def verificar_rango(n1, n2):
             ni = int(input(Fore.CYAN+""))
             if ni >= n1 or ni <= n2:
                 return ni
-            print(Fore.CYAN +f"Ingrése un número dentro del rango ({n1}-{n2})")
+            print(Fore.RED +f"Ingrése un número dentro del rango ({n1}-{n2})")
         except ValueError:
-            print(Fore.CYAN +"Ingresar un valor válido")
+            print(Fore.RED +"Ingresar un valor válido")
             ni = n1 - 1
 ####################################################################################################
 
@@ -61,7 +61,8 @@ def tiempo_fuera():
         op = verificar_rango(0, 1)
         if op == 0:
             exit()
-        limpiar_pantalla()
+    limpiar_pantalla()
+    return True
 ####################################################################################################
 
 ####################################################################################################
@@ -71,7 +72,7 @@ def pedir_numero_entero(min = 0):           #Se espera que se ingrese el número
         try:
             numero = int(input(Fore.CYAN+""))
             if numero < min:
-                print(Fore.RED +"Ingresar un valor válido")
+                print(Fore.RED + f"Ingresar un número mayor o igual a {min}")
             if numero >= min:
                 return numero
         except ValueError as e:
@@ -83,7 +84,7 @@ def pedir_numero_flotante(min = 0):
         try:
             numero = float(input(Fore.CYAN+""))
             if numero < min:
-                print(Fore.RED +"Ingresar un valor válido")
+                print(Fore.RED + f"Ingresar un número mayor o igual a {min}")
             if numero >= min:
                 return numero
         except ValueError as e:
@@ -254,7 +255,9 @@ def modificar_producto():
         conexion.close()
         return
     
-    print(end=Fore.CYAN +"Ingresar ID del producto que se desea modificar (0 para volver): ")
+    print(end=Fore.BLUE + "0. Volver")
+    print(end=Fore.BLUE + "\n==============================================================================")
+    print(end=Fore.CYAN +"\nIngresar ID del producto que se desea modificar: ")
     verifico = True
     ide = pedir_numero_entero(0)
     if(ide == 0):
@@ -319,7 +322,9 @@ def eliminar_producto():
         conexion.close()
         return
     
-    print(end=Fore.CYAN +"Ingresar ID del producto que se desea eliminar (0 para volver): ")
+    print(end=Fore.BLUE + "0. Volver")
+    print(end=Fore.BLUE + "\n==============================================================================")
+    print(end=Fore.CYAN +"\nIngresar ID del producto que se desea eliminar: ")
     verifico = True
     ide = pedir_numero_entero(0)
     if ide == 0:
